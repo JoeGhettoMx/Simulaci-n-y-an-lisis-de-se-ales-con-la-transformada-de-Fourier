@@ -1,0 +1,17 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Crear el tiempo: 1 segundo con 1000 muestras
+t = np.linspace(0, 1, 1000)
+
+# Crear la señal pulso rectangular entre t = 0.4 y t = 0.6 segundos
+pulso = np.where((t >= 0.4) & (t <= 0.6), 1, 0)
+
+# Graficar la señal pulso rectangular
+plt.figure(figsize=(10, 4))
+plt.plot(t, pulso)
+plt.title('Pulso Rectangular en el Dominio del Tiempo')
+plt.xlabel('Tiempo [s]')
+plt.ylabel('Amplitud')
+plt.grid(True)
+plt.show()
