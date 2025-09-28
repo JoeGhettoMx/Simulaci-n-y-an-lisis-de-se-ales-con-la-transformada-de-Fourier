@@ -17,7 +17,7 @@ Se generan tres tipos de señales básicas:
    - Activa entre `t = 0.4` y `t = 0.6` segundos.
    - Representa una señal binaria de duración limitada.
    
-## 📊 Análisis en el Dominio de Frecuencia
+##Análisis en el Dominio de Frecuencia
 
 Se aplica la **Transformada de Fourier (FFT)** a cada señal para observar su comportamiento en el espectro de frecuencia:
 
