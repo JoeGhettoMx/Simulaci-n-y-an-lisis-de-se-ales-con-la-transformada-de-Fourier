@@ -1,0 +1,21 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Crear el tiempo: 1 segundo con 1000 muestras
+t = np.linspace(0, 1, 1000)
+
+# Crear la señal pulso rectangular entre t = 0.4 y t = 0.6 segundos
+pulso = np.where((t >= 0.4) & (t <= 0.6), 1, 0)
+
+# Aplicar la Transformada de Fourier a la señal pulso rectangular
+P = np.fft.fft(pulso)
+frecuencias = np.fft.fftfreq(len(t), d=t[1] - t[0])
+
+# Graficar la magnitud del espectro de frecuencia
+plt.figure(figsize=(10, 4))
+plt.plot(frecuencias, np.abs(P))
+plt.title('Espectro de Frecuencia - Pulso Rectangular')
+plt.xlabel('Frecuencia [Hz]')
+plt.ylabel('Magnitud')
+plt.grid(True)
+plt.show()
