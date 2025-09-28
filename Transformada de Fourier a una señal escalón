@@ -1,0 +1,21 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Crear el tiempo: 1 segundo con 1000 muestras
+t = np.linspace(0, 1, 1000)
+
+# Crear la señal escalón (Heaviside) que comienza en t = 0.5 segundos
+u = np.heaviside(t - 0.5, 1)
+
+# Aplicar la Transformada de Fourier a la señal escalón
+U = np.fft.fft(u)
+frecuencias = np.fft.fftfreq(len(t), d=t[1] - t[0])
+
+# Graficar la magnitud del espectro de frecuencia
+plt.figure(figsize=(10, 4))
+plt.plot(frecuencias, np.abs(U))
+plt.title('Espectro de Frecuencia - Señal Escalón')
+plt.xlabel('Frecuencia [Hz]')
+plt.ylabel('Magnitud')
+plt.grid(True)
+plt.show()
